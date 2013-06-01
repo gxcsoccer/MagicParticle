@@ -3,13 +3,14 @@ S.Dot = function(x, y) {
         x: x,
         y: y,
         z: 5,
-        a: 1,
+        a: 1,   // alpha
         h: 0
     });
 
     this.e = 0.07;
     this.s = true;
 
+    // color
     this.c = new S.Color(255, 255, 255, this.p.a);
 
     this.t = this.clone();
