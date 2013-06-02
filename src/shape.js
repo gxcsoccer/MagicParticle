@@ -61,7 +61,7 @@ S.Shape = (function() {
                     }));
                 }
 
-                dots[d].s = false;
+                dots[d].s = true;
                 dots[d].move(new S.Point({
                     x: n.dots[i].x + cx,
                     y: n.dots[i].y + cy,

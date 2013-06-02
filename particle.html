@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Magic Particles</title>
+		<script src="src/Style.js"></script>
+		<script src="src/Particle.js"></script>
+		<script src="src/ShapeGenerater.js"></script>
+		<script src="src/SandBox.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			canvas {
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas class="canvas"></canvas>
+	</body>
+	<script>
+		SandBox.init(".canvas");
+		SandBox.switchShape(ShapeGenerater.letter("Hello :)"));
+	</script>
+</html>
