@@ -2,19 +2,19 @@ S.Dot = function(x, y) {
     this.p = new S.Point({
         x: x,
         y: y,
-        z: 5,
+        z: 5,   // radis
         a: 1,   // alpha
-        h: 0
+        h: 0    // life
     });
 
     this.e = 0.07;
-    this.s = true;
+    this.s = true;  // is static ?
 
     // color
     this.c = new S.Color(255, 255, 255, this.p.a);
 
-    this.t = this.clone();
-    this.q = [];
+    this.t = this.clone();  // target
+    this.q = [];    // queue
 };
 
 S.Dot.prototype = {
