@@ -18,7 +18,33 @@
 			canvas.height = window.innerHeight;
 		},
 		switchShape: function(shape) {
-			particles = shape;
+			var current = particles.length,
+				total = shape.length,
+				size = total - current,
+				i = 0,
+				wx = canvas.width / 2, 
+				wy = canvas.height / 2,
+				now;
+
+			if (size > 0) {
+				for (; i < size; i++) {
+					particles.push(new Particle({
+						x: wx,
+						y: wy
+					}, 5));
+				}
+			}
+
+			now = particles.length;
+
+			for(i = 0; i < now; i++) {
+				if(i < total) {
+					particles[i].step.push(shape[i].pos);
+					particles[i].style = shape[i].style;
+				} else {
+					particles[i].style = new Style(0,0,0,0);
+				}
+			}
 		},
 		loop: function() {
 			this.clear();

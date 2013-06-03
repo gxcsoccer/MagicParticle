@@ -24,5 +24,8 @@
 	<script>
 		SandBox.init(".canvas");
 		SandBox.switchShape(ShapeGenerater.letter("Hello :)"));
+		setTimeout(function() {
+			SandBox.switchShape(ShapeGenerater.letter("World"));
+		}, 1000);
 	</script>
 </html>
