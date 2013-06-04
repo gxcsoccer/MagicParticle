@@ -14,12 +14,19 @@
 			}
 
 			canvas {
-				background: yellow;
+				/*background: yellow;*/
+			}
+
+			#input {
+				position: fixed;
+				bottom: 50px;
+				left: 200px;
 			}
 		</style>
 	</head>
 	<body>
 		<canvas class="canvas"></canvas>
+		<input type="text" id="input" />
 	</body>
 	<script>
 		SandBox.init(".canvas");
@@ -27,5 +34,19 @@
 		setTimeout(function() {
 			SandBox.switchShape(ShapeGenerater.letter("World"));
 		}, 1000);
+
+		setTimeout(function() {
+			var img = new Image();
+			img.src = "img/qq.png";
+			img.onload = function() {
+				SandBox.switchShape(ShapeGenerater.imageFile(img));
+			};
+		}, 2000);
+		
+
+		var input = document.getElementById('input');
+		input.addEventListener('change', function() {
+			SandBox.switchShape(ShapeGenerater.letter(input.value));
+		}, false);
 	</script>
 </html>

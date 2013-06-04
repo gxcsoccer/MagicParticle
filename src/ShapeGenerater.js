@@ -10,16 +10,16 @@
 	}
 
 	function isNumber(n) {
-        return !isNaN(parseFloat(n)) && isFinite(n);
-    }
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
 
-    function fit() {
-        shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
-        shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
-        shapeContext.fillStyle = 'red';
-        shapeContext.textBaseline = 'middle';
-        shapeContext.textAlign = 'center';
-    }
+	function fit() {
+		shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
+		shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
+		shapeContext.fillStyle = 'red';
+		shapeContext.textBaseline = 'middle';
+		shapeContext.textAlign = 'center';
+	}
 
 	function processCanvas() {
 		var pixels = shapeContext.getImageData(0, 0, shapeCanvas.width, shapeCanvas.height).data,
@@ -61,6 +61,11 @@
 			shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
 			shapeContext.fillText(text, shapeCanvas.width / 2, shapeCanvas.height / 2);
 
+			return processCanvas();
+		},
+		imageFile: function(image) {
+			shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
+			shapeContext.drawImage(image, 0, 0, image.width, image.height, (shapeCanvas.width - shapeCanvas.height * 0.8) / 2, (shapeCanvas.height - shapeCanvas.height * 0.8) / 2, shapeCanvas.height * 0.8, shapeCanvas.height * 0.8);
 			return processCanvas();
 		}
 	};
